@@ -39,11 +39,22 @@ pAequorFactory = (specimenNum, dna) => {
       this.dna[idx] = mutatedBase;
       return this.dna;
     },
-    compareDNA(pAequor) {},
+    compareDNA(pAequor) {
+      let matches = 0;
+      for (let i = 0; i < this.dna.length; i++) {
+        if (pAequor.dna[i] === this.dna[i]) {
+          matches += 1;
+        }
+      }
+      console.log(
+        `Specimen ${this.specimenNum} and specimen ${
+          pAequor.specimenNum
+        } have ${this.dna.length / matches}% base elements in common.`
+      );
+    },
   };
 };
 
-const base = pAequorFactory(createSpecimenNumber(), mockUpStrand());
-console.log(base);
-base.mutate();
-console.log(base);
+const base1 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
+const base2 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
+base1.compareDNA(base2);
