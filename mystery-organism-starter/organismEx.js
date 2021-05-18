@@ -64,7 +64,13 @@ pAequorFactory = (specimenNum, dna) => {
   };
 };
 
-const base1 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
-const base2 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
-base1.compareDNA(base2);
-console.log(base1.willLikelySurvive());
+// Create and store 30 instances of pAequor that can survive (> .6 Cs and Gs).
+let survivableInstances = [];
+
+do {
+  const tempSpecimen = pAequorFactory(createSpecimenNumber(), mockUpStrand());
+  if (tempSpecimen.willLikelySurvive()) survivableInstances.push(tempSpecimen);
+} while (survivableInstances.length < 30);
+
+console.log(survivableInstances.length);
+console.log(survivableInstances);
