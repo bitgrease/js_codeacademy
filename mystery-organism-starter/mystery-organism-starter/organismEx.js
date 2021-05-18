@@ -59,12 +59,21 @@ pAequorFactory = (specimenNum, dna) => {
           countOfCsAndGs += 1;
         }
       });
-      return countOfCsAndGs / this.dna.length >= 0.6;
+      console.log(`${countOfCsAndGs / this.dna.length}`);
+      return countOfCsAndGs / this.dna.length >= 60;
     },
   };
 };
 
+// TODO:
+// P. aequor have a likelier chance of survival if their DNA is made up of at least 60% 'C' or 'G' bases.
+
+// In the returned object of pAequorFactory(), add another method .willLikelySurvive().
+
+// .willLikelySurvive() returns true if the object’s .dna array contains at least 60% 'C' or 'G' bases. Otherwise, .willLikelySurvive() returns false.
+
 const base1 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
 const base2 = pAequorFactory(createSpecimenNumber(), mockUpStrand());
 base1.compareDNA(base2);
+console.log(base1.dna);
 console.log(base1.willLikelySurvive());
