@@ -1,12 +1,10 @@
-const subjects = [];
-const verbs = [];
-const objects = [];
+const subjects = ['The bird', 'A rock', 'One man', 'One woman', 'A person'];
+const verbs = ['eats', 'shot', 'perpetrated', 'garnered', 'shuttered'];
+const objects = ['a frog', 'the car', 'babies', 'animals', 'vegetables', 'a radio'];
 
 // Generate a random index for a given array
 generateRandomIndex = array => {
     return Math.round(Math.random() * (array.length - 1))
-}
-
-for(let i = 0;i < 11;i++) {
-    console.log(generateRandomIndex([0,1,2,3,4,5,6,7,8,9]))
 };
+
+console.log(`${subjects[generateRandomIndex(subjects)]} ${verbs[generateRandomIndex(verbs)]} ${objects[(generateRandomIndex(objects))]}`);
